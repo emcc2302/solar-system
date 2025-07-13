@@ -25,10 +25,15 @@ This is an interactive 3D Solar System simulation built using [Three.js](https:/
 
 
 📁 solar-system/
+
 ├── index.html # Main HTML file
+
 ├── style.css # Default styling
+
 ├── responsive.css # Responsive layout styles
+
 ├── script.js # Main Three.js logic
+
 └── README.md # This file
 
 
