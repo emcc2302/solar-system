@@ -1,20 +1,26 @@
 const scene = new THREE.Scene();
 
-// Planet data
+const solarSystemGroup = new THREE.Group();
+scene.add(solarSystemGroup);
+
+
 const planetData = [
-  { name: "Mercury", size: 0.3, distance: 4, color: 0xaaaaff, speed: 0.02 },
-  { name: "Venus", size: 0.5, distance: 6, color: 0xffaa00, speed: 0.015 },
-  { name: "Earth", size: 0.6, distance: 8, color: 0x2266ff, speed: 0.01 },
-  { name: "Mars", size: 0.4, distance: 10, color: 0xff3300, speed: 0.008 },
-  { name: "Jupiter", size: 1.2, distance: 13, color: 0xffcc99, speed: 0.006 },
-  { name: "Saturn", size: 1.0, distance: 16, color: 0xffeeaa, speed: 0.004 },
-  { name: "Uranus", size: 0.8, distance: 19, color: 0x66ccff, speed: 0.002 },
-  { name: "Neptune", size: 0.7, distance: 22, color: 0x3333ff, speed: 0.001 }
+  { name: "Mercury", size: 3.0,  distance: 40,  color: 0xaaaaff, speed: 0.02 },
+  { name: "Venus",   size: 3.5,  distance: 45,  color: 0xffaa00, speed: 0.015 },
+  { name: "Earth",   size: 3.8,  distance: 51,  color: 0x2266ff, speed: 0.01 },
+  { name: "Mars",    size: 3.3,  distance: 56,  color: 0xff3300, speed: 0.008 },
+  { name: "Jupiter", size: 5.0,  distance: 64,  color: 0xffcc99, speed: 0.006 },
+  { name: "Saturn",  size: 4.5,  distance: 72,  color: 0xffeeaa, speed: 0.004 },
+  { name: "Uranus",  size: 4.3,  distance: 80,  color: 0x66ccff, speed: 0.002 },
+  { name: "Neptune", size: 4.1,  distance: 61,  color: 0x3333ff, speed: 0.001 }
 ];
+
+
+
 
 const maxDistance = Math.max(...planetData.map(p => p.distance)) + 2;
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-camera.position.set(0, 40, maxDistance * 2);
+camera.position.set(0, 50, 130);
 camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -27,7 +33,7 @@ pointLight.position.set(0, 0, 0);
 scene.add(ambientLight, pointLight);
 
 const sun = new THREE.Mesh(
-  new THREE.SphereGeometry(2, 32, 32),
+  new THREE.SphereGeometry(8.0, 30, 42),
   new THREE.MeshBasicMaterial({ color: 0xffff00 })
 );
 scene.add(sun);
@@ -166,3 +172,5 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+solarSystemGroup.scale.set(1.8, 1.8, 1.8);
+solarSystemGroup.position.y = 10;

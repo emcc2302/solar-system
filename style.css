@@ -22,7 +22,7 @@ body {
 
 canvas {
   position: absolute;
-  top: 0;
+  top: -170px;
   left: 0;
   z-index: 1;
   pointer-events: auto;
