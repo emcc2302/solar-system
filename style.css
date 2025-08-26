@@ -1,63 +1,50 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: white;
-  text-align: center;
-}
-
-body {
-  position: relative;
-}
-
-#container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: auto;
-  cursor: default;
-}
-
-#controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px;
-  z-index: 10;
-}
-
-#controls input {
-  margin: 5px;
-}
-
-button {
+#menu-toggle {
+  display: none;
   margin: 10px;
   padding: 6px 12px;
   font-size: 16px;
+  background: #333;
+  color: white;
+  border: none;
   cursor: pointer;
   z-index: 10;
 }
 
-#tooltip {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  pointer-events: none;
-  font-size: 14px;
-  z-index: 1000;
-  display: none;
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: inline-block;
+  }
+
+  .controls-container {
+    max-height: 1000px;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .controls-container.collapsed {
+    max-height: 0;
+    padding: 0;
+  }
+
+  #controls div {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  #controls input[type="range"] {
+    width: 100%;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
